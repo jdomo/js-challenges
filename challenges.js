@@ -84,7 +84,14 @@ sumNumbers([2, 10, -5]) //=> 7
 sumNumbers([]) //=> 0
 -----------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
-
+function sumNumbers(arr) {
+  let sum = 0;
+  if (arr.length !== 0) {
+    arr.forEach(item => sum += item);
+    return sum;
+  }
+  return sum;
+}
 
 
 
@@ -107,7 +114,12 @@ add(1,50,1.23) //=> 52.23
 add(7,-12) //=> -5
 -----------------------------------------------------------------*/
 // Your solution for 04-addList here:
-
+function addList(...nums) {
+  if (!arguments.length) {
+    return 0;
+  }
+  return nums.reduce((acc, item) => acc += item);
+}
 
 
 
