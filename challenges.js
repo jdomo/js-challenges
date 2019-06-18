@@ -34,9 +34,9 @@ addOne(-5) //=> -4
 -----------------------------------------------------------------*/
 // Your solution for 01-addOne here:
 
-
-
-
+function addOne(num) {
+  return num += 1;
+}
 
 /*-----------------------------------------------------------------
 Challenge: 02-addTwoNumbers
@@ -57,7 +57,12 @@ addTwoNumbers('Hello', 5) //=> NaN
 -----------------------------------------------------------------*/
 // Your solution for 02-addTwoNumbers here:
 
-
+const addTwoNumbers = (num1, num2) => {
+  if (typeof num1 === "number" && typeof num2 === "number") {
+    return num1 + num2;
+  }
+  return NaN;
+}
 
 
 
