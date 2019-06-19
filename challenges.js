@@ -116,7 +116,7 @@ add(7,-12) //=> -5
 // Your solution for 04-addList here:
 function addList(...nums) {
   if (!arguments.length) {
-    return 0;
+    return arguments.length;
   }
   return nums.reduce((acc, item) => acc += item);
 }
@@ -144,9 +144,28 @@ computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------*/
 // Your solution for 05-computeRemainder:
 
+function computeRemainder(num1, num2) {
+  if (!num2) return Infinity;
+  return num1 % num2;
+}
 
-
-
+// function computeRemainder(num1, num2) {
+//   if (!num2) return Infinity;
+//   const quo = num1 / num2;
+//   if ((num2 * quo) === num1) return 0;
+//   return num1 - (num2 * quo);
+// }
+// function computeRemainder(num1, num2) {
+//   if (!num2) { 
+//     return Infinity;
+//   } else if (!Number.isInteger(num1 / num2)) {
+//     const quo = Math.round(num1 / num2); 
+//   } else if ((num2 * quo) === num1) {
+//     return 0;
+//   } else {
+//     return num1 - (num2 * quo);
+//   }
+// }
 
 /*-----------------------------------------------------------------
 Challenge: 06-range
