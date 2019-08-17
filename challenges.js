@@ -64,8 +64,6 @@ const addTwoNumbers = (num1, num2) => {
   return NaN;
 }
 
-
-
 /*-----------------------------------------------------------------
 Challenge: 03-sumNumbers
 
@@ -93,9 +91,6 @@ function sumNumbers(arr) {
   return sum;
 }
 
-
-
-
 /*-----------------------------------------------------------------
 Challenge: 04-addList
 
@@ -115,14 +110,11 @@ add(7,-12) //=> -5
 -----------------------------------------------------------------*/
 // Your solution for 04-addList here:
 function addList(...nums) {
-  if (!arguments.length) {
-    return arguments.length;
+  if (!nums.length) {
+    return nums.length;
   }
   return nums.reduce((acc, item) => acc += item);
 }
-
-
-
 
 /*-----------------------------------------------------------------
 Challenge: 05-computeRemainder
@@ -149,24 +141,6 @@ function computeRemainder(num1, num2) {
   return num1 % num2;
 }
 
-// function computeRemainder(num1, num2) {
-//   if (!num2) return Infinity;
-//   const quo = num1 / num2;
-//   if ((num2 * quo) === num1) return 0;
-//   return num1 - (num2 * quo);
-// }
-// function computeRemainder(num1, num2) {
-//   if (!num2) { 
-//     return Infinity;
-//   } else if (!Number.isInteger(num1 / num2)) {
-//     const quo = Math.round(num1 / num2); 
-//   } else if ((num2 * quo) === num1) {
-//     return 0;
-//   } else {
-//     return num1 - (num2 * quo);
-//   }
-// }
-
 /*-----------------------------------------------------------------
 Challenge: 06-range
 
@@ -184,11 +158,16 @@ range(-2, 3) //=> [-2,-1,0,1,2]
 range(1,1) //=> []
 range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------*/
+
 // Your solution for 06-range here:
-
-
-
-
+const range = (low, high) => {
+  if (high < low) return 'First argument must be less than second';
+  let result = [];
+  for (let i = low; i < high; i += 1) {
+    result.push(i);
+  }
+  return result;
+}
 
 /*-----------------------------------------------------------------
 Challenge: 07-reverseUpcaseString
@@ -205,9 +184,10 @@ reverseUpcaseString("SEI Rocks!"); //=> "!SKCOR IES"
 -----------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
 
-
-
-
+const reverseUpcaseString = str => {
+  strArr = str.split('');
+  return strArr.reverse().join('').toUpperCase();
+}
 
 /*-----------------------------------------------------------------
 Challenge: 08-removeEnds
@@ -226,9 +206,10 @@ removeEnds('a'); //=> "" (empty string)
 -----------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
 
-
-
-
+const removeEnds = str => {
+  if (str.length < 3) return '';
+  return str.slice(1, str.length - 1);
+}
 
 /*-----------------------------------------------------------------
 Challenge: 09-charCount
@@ -249,7 +230,14 @@ charCount('Today is fantastic!') //=> { T: 1, o: 1, d: 1, a: 3, y: 1, ' ': 2, i:
 -----------------------------------------------------------------*/
 // Your solution for 09-charCount here:
 
-
+const charCount = str => {
+  const countObj = {};
+  for (let i = 0; i < str.length; i += 1) {
+    if (countObj[str[i]]) countObj[str[i]] += 1;
+    else countObj[str[i]] = 1;
+  }
+  return countObj;
+}
 
 
 
@@ -275,9 +263,11 @@ formatWithPadding(1234, '*', 3); //=> "1234"
 -----------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
 
-
-
-
+const formatWithPadding = (int, char, pad) => {
+  let intString = int.toString();
+  if (intString.length >= pad) return intString;
+  return char.repeat(pad - intString.length) + intString;
+}
 
 /*-----------------------------------------------------------------
 Challenge: 11-isPalindrome
