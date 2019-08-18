@@ -290,9 +290,13 @@ isPalindrome(''); //=> true
 -----------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
 
-
-
-
+const isPalindrome = (str) => {
+  str = str.toLowerCase().split(' ').join('');
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] !== str[(str.length - 1) - i]) return false;
+  }
+  return true;
+}
 
 /*-----------------------------------------------------------------
 Challenge: 12-hammingDistance
