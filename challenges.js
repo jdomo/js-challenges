@@ -382,9 +382,6 @@ const fromPairs = (arr) => {
   return result;
 }
 
-
-
-
 /*-----------------------------------------------------------------
 Challenge: 15-mergeObjects
 
@@ -403,9 +400,11 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c:
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
 
-
-
-
+const mergeObjects = (...obj) => {
+  const target = obj[0]
+  obj.forEach(item => Object.assign(target, item))
+  return target;
+}
 
 /*-----------------------------------------------------------------
 Challenge: 16-findHighestPriced
