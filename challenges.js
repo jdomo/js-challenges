@@ -401,8 +401,8 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c:
 // Your solution for 15-mergeObjects here:
 
 const mergeObjects = (...obj) => {
-  const target = obj[0]
-  obj.forEach(item => Object.assign(target, item))
+  const target = obj[0];
+  obj.forEach(item => Object.assign(target, item));
   return target;
 }
 
@@ -439,9 +439,14 @@ findHighestPriced([
 -----------------------------------------------------------------*/
 // Your solution for 16-findHighestPriced here:
 
-
-
-
+const findHighestPriced = arr => {
+  let priciest;
+  arr.forEach(item => {
+    if (!priciest) priciest = item;
+    if (priciest.price < item.price) priciest = item;
+  })
+  return priciest;
+}
 
 /*-----------------------------------------------------------------
 Challenge: 17-mapArray
