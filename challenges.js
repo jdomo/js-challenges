@@ -451,7 +451,7 @@ const findHighestPriced = arr => {
 /*-----------------------------------------------------------------
 Challenge: 17-mapArray
 
-Difficulty:  Intermediate
+Difficulty: Intermediate
 
 Prompt:
 
@@ -475,9 +475,13 @@ mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
 -----------------------------------------------------------------*/
 // Your solution for 17-mapArray here:
 
-
-
-
+const mapArray = (arr, callback) => {
+  let result = [];
+  for (let i = 0; i < arr.length; i += 1) {
+    result.push(callback(arr[i], i))
+  }
+  return result;
+}
 
 /*-----------------------------------------------------------------
 Challenge: 18-reduceArray
